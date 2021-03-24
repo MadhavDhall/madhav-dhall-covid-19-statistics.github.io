@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Statistics of India By Madhav Dhall</title>
+
+    <!-- bootstarap css  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- font awesome css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- my css  -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 class="text-center">COVID-19 Statistics of India By Madhav Dhall</h1><br>
+
+    <p class="text-center">As on:&nbsp;&nbsp;<b id="asOn"></b></p>
+    <p class="text-center fw-bold">Note- Humans cannot be 100% accurate, so is the data</p>
+
+    <div class="container-fluid my-5">
+        <div class="d-flex flex-wrap justify-content-evenly card-container">
+            <!-- confirmed -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Confirmed <i class="fas fa-virus"></i></h5>
+                    <br>
+                    <h3 id="totalCases"></h3>
+                    <h6>Positivity Rate- <span id="positivePercentS"></span></h6>
+                </div>
+            </div>
+
+            <!-- active -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Active <i class="fas fa-user-md"></i></h5>
+                    <b id="activeCasesNew" class="text-secondary"><i class="fas fa-arrow-up"></i></b>
+                    <h3 id="activeCases"></h3>
+                    <h6>Active Cases Rate- <span id="activePercentageS"></span></h6>
+                </div>
+            </div>
+
+            <!-- recovered -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Recovered <i class="fas fa-virus-slash"></i></h5>
+                    <b id="recoveredNew" class="text-success"><i class="increase fas fa-arrow-up"></i></b>
+                    <h3 id="recovered"></h3>
+                    <h6>Recovery Rate- <span id="recoveryRate"></span></h6>
+                </div>
+            </div>
+
+            <!-- deaths -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Deaths <i class="fas fa-skull-crossbones"></i></h5>
+                    <b id="deathsNew" class="text-danger"><i class="increase fas fa-arrow-up"></i></b>
+                    <h3 id="deaths"></h3>
+                    <h6>Fatality Rate- <span id="fatalityPercentS"></span></h6>
+                </div>
+            </div>
+
+            <!-- tests  -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Tests <i class="fas fa-vial"></i></h5>
+                    <b id="previousDayTests" class="text-info"><i class="increase fas fa-arrow-up"></i></b>
+                    <h3 id="tested"></h3>
+                </div>
+            </div>
+
+            <!-- vaccination -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Vaccinated <i class="fas fa-syringe"></i></h5>
+                    <br>
+                    <h3 id="vaccinated"></h3>
+                </div>
+            </div>
+
+            <!-- population -->
+            <div class="col-12 col-sm-10 col-md-4 col-lg-3 card">
+                <div class="card-body text-center">
+                    <h5>Population <i class="fas fa-users"></i></h5>
+                    <br>
+                    <h3 id="population"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- state wise  -->
+    <h2>State Wise Statistics</h2><br>
+    <h6>OD- Out Dated</h6>
+    <h6>ND- No Data</h6>
+    <div id="data">
+        <table class="table table-responsive table-striped table-hover container-fluid">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>#</th>
+                    <th>State/UT</th>
+                    <th>confirmed</th>
+                    <th>active</th>
+                    <th>recovered</th>
+                    <th>deaths</th>
+                    <th>tested</th>
+                    <th>vaccine doses administered</th>
+                    <th>active cases rate</th>
+                    <th>Recovery Rate</th>
+                    <th>case fatility rate</th>
+                    <th>test positivity rate</th>
+                    <th>population</th>
+                </tr>
+            </thead>
+
+            <tbody id="statesData">
+
+            </tbody>
+
+            <tfoot>
+                <tr class="bg-primary text-white">
+                    <th>#</th>
+                    <th>State/UT</th>
+                    <th>confirmed</th>
+                    <th>active</th>
+                    <th>recovered</th>
+                    <th>deaths</th>
+                    <th>tested</th>
+                    <th>vaccine doses administered</th>
+                    <th>active cases rate</th>
+                    <th>Recovery Rate</th>
+                    <th>case fatility rate</th>
+                    <th>test positivity rate</th>
+                    <th>population</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

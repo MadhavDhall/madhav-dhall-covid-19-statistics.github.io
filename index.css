@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2%;
+    overflow-x: hidden;
+    background: #f8f8f8;
+}
+
+th {
+    text-transform: capitalize;
+}
+#data {
+    overflow-x: auto;
+}
+td {
+    white-space: nowrap;
+}
+.card {
+    margin: 0 0.2% 2% 0.2%;
+}
+#DN td{
+    white-space: normal;
+}
+.expand{
+    background: none;
+    border: none;
+}
